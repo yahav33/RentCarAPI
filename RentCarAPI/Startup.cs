@@ -28,7 +28,8 @@ namespace RentCarAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<RentCarDataContext>(x => x.UseSqlServer("conecctionString"));
+            services.AddDbContext<RentCarDataContext>(x => x.UseSqlServer
+            (Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
